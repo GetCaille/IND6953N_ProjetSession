@@ -1,9 +1,10 @@
-
 # Web Scrapping Yahoo Finance
 
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
+from selenium import webdriver
+
 
 
 def GetData(ticker):
@@ -111,5 +112,57 @@ def GetData(ticker):
     df_cs.columns = headers
 
     return df_balance, df_cs, df_income
+
+
+def KeyStats(ticker):
+    """
+    :arg ticker from Yahoo Finance
+    :return Main stats from Yahoo Finance
+    """
+    url_stats = "https://ca.finance.yahoo.com/quote/{0}/key-statistics?p={0}".format(ticker)
+    url_main = "https://ca.finance.yahoo.com/quote/{0}/".format(ticker)
+
+    key_stats_main = ['Market Cap', 'PE Ratio (TTM)', 'EPS(TTM', 'Beta (5Y Monthly)', 'Forward Dividend & Yield']
+    key_stats_stats = ['Enterprise Value', 'Trailing P/E', 'Forward P/E', 'Price/Book (mrq)', 'Enterprise Value/EBITDA'
+                       , 'Profit Margin', 'Operating Margin (ttm)', 'Return on Assets (ttm)', 'Return on Equity (ttm)'
+                       , 'Quarterly Revenue Growth (yoy)', 'Forward Annual Dividend Rate', 'Payout Ratio']
+
+    driver = webdriver.Chrome(r"C:\Users\Alex\Downloads\chromedriver_win32")
+
+    driver.get(url_main)
+    innerHTML = driver.execute_script("return document.body.innerHTML")
+    soup = BeautifulSoup(innerHTML, 'html.parser')
+    for stat in key_stats_main:
+        page_stat1 = soup.find(text=stat)
+        try:
+            page_row1 = page_stat1.find_parent('tr')
+            try:
+                page_statnum1 = page_row1.find_all('span')[1].contents[1]
+            except:
+                page_statnum1 = page_row1.find_all('td')[1].contents[0]
+        except:
+            print('Invalid parent for this element')
+            page_statnum1 = "N/A"
+        stock_info.append(page_statnum1)
+
+    driver.get(url_stats)
+    innerHTML2 = driver.execute_script("return document.body.innerHTML")
+    soup2 = BeautifulSoup(innerHTML2, 'html.parser')
+    for stat in key_stats_stats:
+        page_stat2 = soup2.find(text=stat)
+        try:
+            page_row2 = page_stat2.find_parent('tr')
+            try:
+                page_statnum2 = page_row2.find_all('span')[1].contents[0]
+            except:
+                page_statnum2 = page_row2.find_all('td')[1].contents[0]
+        except:
+            print('Invalid parent for this element')
+            page_statnum2 = "N/A"
+        stock_info.append(page_statnum2)
+    return(stock_info)
+
+
+KeyStats('AAPL')
 
 
