@@ -1,12 +1,16 @@
 import pandas as pd
-import quandl 
-import time
+import quandl as ql
 
-#Quandl access key
-quandl.ApiConfig.api_key = 'dgHj2ix2qxWUKwEgWvR9'
+
+# quandl access key
+
+my_API_Key = 'xabkmqmf7HNaU9rv3Mz9'
+
+
+ql.ApiConfig.api_key = my_API_Key
 
 stockTicker = 'AAPL'
-data = quandl.get_table('ZACKS/FC', ticker='AAPL')
+data = ql.get_table('ZACKS/FC', ticker='AAPL')
 data.head()
 
-print("hello world")
+
