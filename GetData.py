@@ -2,28 +2,19 @@
 
 import requests
 from bs4 import BeautifulSoup
+import pandas_datareader as pdr
 import pandas as pd
 import datetime
-import yfinance as yf
-import matplotlib.pyplot as plt
 
 
-def GetPrice(ticker, start_date, end_date):
+def StockData(ticker, start_date, end_date):
     """
     :param ticker: company's ticker
     :return: adjusted price, volatility, other stats
     """
-    data = yf.download(ticker, start=start_date, end=end_date)
-    adj_close = data['Adj Close']
-    adj_daily_yield = adj_close.pct_change(1)
-    average_daily_yield = adj_daily_yield.mean()
-    adj_periodic_yield = adj_close.pct_change(252)
-    average_periodic_yield = adj_periodic_yield.mean()
-    daily_yield_stddev = adj_daily_yield.std()
-    plt.plot(adj_close)
-    plt.title('Adjusted Close Price')
-    plt.show()
-    return average_daily_yield, average_periodic_yield, daily_yield_stddev
+    data_ticker = pdr.get_data_yahoo(ticker, start_date, end_date)
+    df_price = pd.DataFrame (data_ticker)
+    return df_price
 
 
 def GetData(ticker):
@@ -129,8 +120,5 @@ def GetData(ticker):
     return df_balance, df_cs, df_income
 
 
-def GetStats(ticker):
-    pass
-
-
-print(GetPrice('NPI.TO', datetime.datetime(year=2015, month=1, day=1), datetime.datetime(year=2020, month=4, day=1)))
+data_Financials = GetData('NPI.TO')
+data_stock = StockData('NPI.TO', datetime.datetime(year=2017, month=1, day=1), datetime.datetime(year=2020, month=4, day=1))
