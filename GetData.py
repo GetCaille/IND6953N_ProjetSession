@@ -17,7 +17,7 @@ def StockData(ticker, start_date, end_date):
     return df_price
 
 
-def GetData(ticker):
+def GetFinancials(ticker):
     """
     :arg ticker from Yahoo Finance
     :return Dataframe of Income Statement, Balance Sheets and Cash Flow
@@ -117,8 +117,5 @@ def GetData(ticker):
     df_cs = pd.DataFrame(final[1:])
     df_cs.columns = headers
 
-    return df_balance, df_cs, df_income
+    return df_income, df_balance, df_cs
 
-
-data_Financials = GetData('NPI.TO')
-data_stock = StockData('NPI.TO', datetime.datetime(year=2017, month=1, day=1), datetime.datetime(year=2020, month=4, day=1))
