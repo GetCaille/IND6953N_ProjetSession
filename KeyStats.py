@@ -2,6 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 import pandas as pd
 
+
 def statistics(ticker):
     url = 'https://ca.finance.yahoo.com/quote/' + str(ticker) + '/key-statistics?p=' + str(ticker)
     page = requests.get(url)
@@ -15,10 +16,12 @@ def statistics(ticker):
         value = (item.find('td', class_='Fw(500)')).get_text()
         labels.append(label)
         values.append(value)
-
-        df = pd.DataFrame(values)
+        data = list(zip(labels, values))
+    df = pd.DataFrame(data, columns=['Name', 'Value'])
+    df
     return df
 
 
-statistics('NPI.TO')
+df = statistics('NPI.TO')
+
 
