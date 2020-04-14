@@ -5,6 +5,8 @@ from GetData import GetFinancials
 import datetime
 import pandas as pd
 
+from KeyStats import statistics
+
 
 data_Financials = GetFinancials('CAS.TO')
 data_stock = StockData('CAS.TO', datetime.datetime(year=2017, month=1, day=1), datetime.datetime(year=2020, month=4, day=1))

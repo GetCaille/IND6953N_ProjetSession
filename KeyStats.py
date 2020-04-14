@@ -23,5 +23,7 @@ def statistics(ticker):
 
 
 df = statistics('NPI.TO')
-
+forward_pe_ratio = float(df.loc[3, 'Value'])
+price_to_sales = float(df.loc[5, 'Value'])
+price_to_book = float(df.loc[6, 'Value'])
 
