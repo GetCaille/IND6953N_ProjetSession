@@ -4,3 +4,8 @@
 ticker1 = input("What is the ticker of the compagnie")
 ticker2 = input("What is the ticker of the compagnie")
 
+from GetData import GetFinancials
+from GetData import StockData
+from GetData import statistics
+import pandas as pd
+

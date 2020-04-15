@@ -4,7 +4,6 @@ import requests
 from bs4 import BeautifulSoup
 import pandas_datareader as pdr
 import pandas as pd
-import datetime
 
 
 def StockData(ticker, start_date, end_date):
