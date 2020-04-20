@@ -18,3 +18,8 @@ def create_financial_df(ticker):
     pass
 
 
+from GetData import GetFinancials
+from GetData import StockData
+from GetData import statistics
+import pandas as pd
+
