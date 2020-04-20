@@ -5,6 +5,8 @@ from GetData import GetFinancials
 from GetData import statistics
 from Ratios import calculate_ratio
 import pandas as pd
+from functools import reduce
+
 import matplotlib.pyplot as plt
 
 
@@ -22,8 +24,9 @@ def compare_ratio(ticker1, ticker2, ticker3):
     ratio_t2 = calculate_ratio(financials_t2, key_stats_t2)
     ratio_t3 = calculate_ratio(financials_t3, key_stats_t3)
 
-    return ratio_t1, ratio_t2, ratio_t3
 
+
+    return df_merged
 
 # Test case :
 
