@@ -4,7 +4,6 @@ import requests
 from bs4 import BeautifulSoup
 import pandas_datareader as pdr
 import pandas as pd
-import datetime
 
 
 def StockData(ticker, start_date, end_date):
@@ -139,7 +138,17 @@ def statistics(ticker):
     return df
 
 
-df = statistics('NPI.TO')
-forward_pe_ratio = float(df.loc[3, 'Value'])
-price_to_sales = float(df.loc[5, 'Value'])
-price_to_book = float(df.loc[6, 'Value'])
+#  Test Case :
+date_format = 'YYYY-MM-DD'
+Data_NPI = StockData("NPI.TO", '2019-01-31', '2020-04-20')
+Financial_NPI = GetFinancials('NPI.TO')
+income_statement = Financial_NPI[0]
+balance_sheet = Financial_NPI[1]
+cash_flow = Financial_NPI[2]
+Key_Statistics_NPI = statistics('NPI.TO')
+
+
+
+forward_pe_ratio = float(Key_Statistics_NPI.loc[3, 'Value'])
+price_to_sales = float(Key_Statistics_NPI.loc[5, 'Value'])
+price_to_book = float(Key_Statistics_NPI.loc[6, 'Value'])
