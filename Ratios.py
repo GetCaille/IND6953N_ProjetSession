@@ -1,33 +1,55 @@
 # Get Ratios
 
-from GetData import StockData
 from GetData import GetFinancials
-
-data_Financials = GetFinancials('CAS.TO')
-# data_stock = StockData('CAS.TO', datetime.datetime(year=2017, month=1, day=1), datetime.datetime(year=2020, month=4, day=1))
-income_statement = data_Financials[0]   # Income statement of the company
-balance_sheet = data_Financials[1]  # Balance Sheet of the Company
-cash_flow = data_Financials[2]  # Cash Flow of the Company
-
-# Data Cleaning
-income_statement = income_statement.apply(lambda x: x.str.replace(',', ''))
-income_statement.rename(columns = {list(income_statement)[1]: 'Value'}, inplace = True)
-balance_sheet = balance_sheet.apply(lambda x: x.str.replace(',', ''))
-balance_sheet.rename(columns = {list(balance_sheet)[1]: 'Value'}, inplace = True)
-cash_flow = cash_flow.apply(lambda x: x.str.replace(',', ''))
-cash_flow.rename(columns = {list(cash_flow)[1]: 'Value'}, inplace = True)
+from GetData import statistics
+import pandas as pd
 
 
-# Liquidity Ratio & Leverage Ratio
-current_ratio = int(balance_sheet.loc[8, 'Value'])/int(balance_sheet.loc[26, 'Value'])
-debt_ratio = int(balance_sheet.loc[32, 'Value'])/int(balance_sheet.loc[19, 'Value'])
-debt_to_equity_ratio = int(balance_sheet.loc[32, 'Value'])/int(balance_sheet.loc[37, 'Value'])
-# Efficiency Ratio
-asset_turnover_ratio = int(income_statement.loc[0, 'Value'])/int(balance_sheet.loc[19, 'Value'])
-inventory_turnover_ratio = int(income_statement.loc[0, 'Value'])/int(balance_sheet.loc[19, 'Value'])
-# Profitability
-operating_margin_ratio = int(income_statement.loc[6, 'Value'])/int(income_statement.loc[0, 'Value'])
-gross_margin_ratio = int(income_statement.loc[2, 'Value'])/int(income_statement.loc[0, 'Value'])
-net_profit_margin = int(income_statement.loc[12, 'Value'])/int(income_statement.loc[0, 'Value'])
-return_on_asset = int(income_statement.loc[12, 'Value'])/int(balance_sheet.loc[19, 'Value'])
-return_on_equity = int(income_statement.loc[12, 'Value'])/int(balance_sheet.loc[37, 'Value'])
+def calculate_ratio(data_Financials, key_stats):
+    """
+    :return:Ratios
+    """
+
+    income_statement = data_Financials[0]  # Income statement of the company
+    balance_sheet = data_Financials[1]  # Balance Sheet of the Company
+    # cash_flow = data_Financials[2]  # Cash Flow of the Company
+
+    # Liquidity Ratio & Leverage Ratio
+
+    current_ratio = int(balance_sheet.loc[balance_sheet['Breakdown'] == 'Total Current Assets', 'Value']) \
+                    / int(balance_sheet.loc[balance_sheet['Breakdown'] == 'Total Current Liabilities', 'Value'])
+
+    debt_ratio = int(balance_sheet.loc[balance_sheet['Breakdown'] == 'Total Liabilities', 'Value'])\
+                 / int(balance_sheet.loc[balance_sheet['Breakdown'] == 'Total Assets', 'Value'])
+
+    debt_to_equity_ratio = float(key_stats.loc[key_stats['Name'] == 'Total Debt/Equity (mrq)', 'Value'])
+
+    forward_pe_ratio = float(key_stats.loc[key_stats['Name'] == 'Forward P/E 1', 'Value'])
+    price_to_sales = float(key_stats.loc[key_stats['Name'] == 'Price/Sales (ttm)', 'Value'])
+    price_to_book = float(key_stats.loc[key_stats['Name'] == 'Price/Book (mrq)', 'Value'])
+    operating_margin_ratio = (float(key_stats.loc[key_stats['Name'] == 'Operating Margin (ttm)', 'Value'])/100)
+
+    net_profit_margin = int(income_statement.loc[income_statement['Breakdown'] == 'Net Income', 'Value']) \
+                    / int(income_statement.loc[income_statement['Breakdown'] == 'Total Revenue', 'Value'])
+
+    # float(key_stats.loc[key_stats['Name'] == 'Profit Margin', 'Value'])
+    return_on_asset = (float(key_stats.loc[key_stats['Name'] == 'Return on Assets (ttm)', 'Value'])/100)
+    return_on_equity = (float(key_stats.loc[key_stats['Name'] == 'Return on Equity (ttm)', 'Value'])/100)
+    beta = float(key_stats.loc[9, 'Value'])
+
+    # Creating a DataFrame with all values
+
+    ratios_df = pd.DataFrame(
+        [current_ratio, debt_ratio, debt_to_equity_ratio, operating_margin_ratio, net_profit_margin,
+         return_on_asset, return_on_equity, forward_pe_ratio, price_to_sales, price_to_book, beta],
+        index=['Current Ratio', 'Debt Ratio', 'Debt to Equity Ratio', 'Operating Margin', 'Net Profit Margin',
+               'Return on Asset', 'Return on Equity', 'PE Ratio', 'Price to Sales', 'PB Ratio', 'Beta 5Y'],
+        columns=["Ratio"]
+    )
+    return ratios_df
+
+
+# Test Case
+data_Financials = GetFinancials('NPI.TO')
+key_stats = statistics('NPI.TO')
+df = calculate_ratio(data_Financials, key_stats)

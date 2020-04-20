@@ -141,21 +141,14 @@ def statistics(ticker):
         values.append(value)
         data = list(zip(labels, values))
     df = pd.DataFrame(data, columns=['Name', 'Value'])
-    df
-    return df
 
+    # Data cleaning
+
+    clean_df = df.apply(lambda x: x.str.replace('%', ''))
+    return clean_df
 
 #  Test Case :
-date_format = 'YYYY-MM-DD'
-Data_NPI = StockData("NPI.TO", '2019-01-31', '2020-04-20')
-Financial_NPI = GetFinancials('NPI.TO')
-income_statement = Financial_NPI[0]
-balance_sheet = Financial_NPI[1]
-cash_flow = Financial_NPI[2]
+# date_format = 'YYYY-MM-DD'
+# Data_NPI = StockData("NPI.TO", '2019-01-31', '2020-04-20')
+# Financial_NPI = GetFinancials('NPI.TO')
 Key_Statistics_NPI = statistics('NPI.TO')
-
-
-
-forward_pe_ratio = float(Key_Statistics_NPI.loc[3, 'Value'])
-price_to_sales = float(Key_Statistics_NPI.loc[5, 'Value'])
-price_to_book = float(Key_Statistics_NPI.loc[6, 'Value'])
