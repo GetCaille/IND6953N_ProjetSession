@@ -1,1 +1,45 @@
-<mxfile host="app.diagrams.net" modified="2020-04-20T18:34:10.455Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.113 Safari/537.36" etag="63i_8xypdVRkM7v3UJnY" version="12.9.14" type="github"><diagram name="Page-1" id="5f0bae14-7c28-e335-631c-24af17079c00">5VjbcpswEP0apu1DOlyC7TzGdtJ2OpnpxOm0fZRBgBohESFsk6/vCoRBBufS2G06zQORVitpOUfas8byZunmg0BZcsVDTC3XDjeWN7dcdzxx4akMZW1wPHdSW2JBQm1rDQtyj7XR1taChDg3HCXnVJLMNAacMRxIw4aE4GvTLeLU3DVDMe4ZFgGifes3EspEWx3bbgc+YhIneuuJrweWKLiNBS+Y3s9yvaj6q4dT1Kyl/fMEhXzdMXkXljcTnMu6lW5mmCpsG9jqeZd7RrdxC8zkUyZc+fH13f1FmaLPobv6ycnNxjnR7K0QLXDzGiMK602XAlqxan1iEosIBRgcv+YAh7C8cxhEaQajbJmrf/1pz7GEZKUQkqVmZXRXKFimEm/kCaIkZtWWNsWRbEd3V8kzxNqgswJc7QdCBai6MzrmKpxDRngCIzdlphAM1YO+QQzRMsfH3HQIlv0U/EE0hgJTCC3KdMnp2/ydhulSJQZ181O4hIzgauTVRDtHsuLTmnnW+dmyOm0BL0TeITmQhLNXGLN6RIS9wogHD+Zf3M01dnGrfI9VRoXMMl0nROJFplKjN1+DPoItkSmFngPNiFA645SLai6oAx4FgWJFCn6LOyPh+Gxp29v9VljAa+xN885WPECUMU+xFCW46AluI1xakBu5Wrfi5nralnR0zWkckRbUeLt0KyrQ0LryDI3x9mpM4jRAfxFccllnyPMsoyRAOwex9e2Rojg3kTcRZpzhHTq0CU53QFgMBr/t3XDgcX7i7mOYAz8RraQ8IWGI4aRNzXNxABqdid/nbTzA2+mxaDsdoG0HeChpMtWkhN2aBMBbivJ7t/NDYfPe9Zv+fKPBqntl09sQ+b3T7k6DbjtLdUoDbxz2Kr0dtCF4SHcBfrwgkkjEWD7m12evw5Y/QFZjE5jC+V6Z4Q4xqHf4wgmT7eHwXPOOb+98s0T9mnpWtybcXWhsLtRLAjUOvYWqA7V97d8/Y+MnlJ9TygPwcZpizr6uFTcosrohdKqw63IhhB8K9YDqPr0GHVK6I6mwEaGdF+Kl2rvH+eVF60ICuLkkd0VdioFn/nAoL99TQTM5g423lIoarbygYD3q/q+1DPlni54Q4Uk0WPSMggleRodRy5H73jcz4qhf9viOP1D2NMaD6+fZf6mf4yfq5/hv6uepbw+flufq5+ixhY6sn06/SHtYXA734eYlOeIQ9fHIRP7U61/4rY9x4b3nF8zQbb/T1dy1H0O9i18=</diagram></mxfile>
+<mxfile host="app.diagrams.net" modified="2020-04-20T18:39:30.979Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.113 Safari/537.36" etag="KYHcYwAxSaAw0GT52Y0I" version="12.9.14" type="github" pages="2">
+  <diagram name="Page-1" id="5f0bae14-7c28-e335-631c-24af17079c00">
+    <mxGraphModel dx="782" dy="1328" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="#ffffff" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="M5gRqzEymaKd2vjoiTx1-2" value="&lt;br&gt;Interface Usager:&amp;nbsp;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;div style=&quot;text-align: left&quot;&gt;&lt;span&gt;Input :&amp;nbsp;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left&quot;&gt;- Type de l&#39;analyse&lt;/div&gt;&lt;div style=&quot;text-align: left&quot;&gt;&lt;span&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left&quot;&gt;&lt;span&gt;- Symbol(s) de/des compagnie(s)&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left&quot;&gt;&lt;span&gt;- Date début cours de l&#39;action&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left&quot;&gt;&lt;span&gt;- Date de fin cours de l&#39;action&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left&quot;&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
+          <mxGeometry x="200" y="50" width="230" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="M5gRqzEymaKd2vjoiTx1-3" value="&lt;h1&gt;Prototype Application&lt;/h1&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="185" width="270" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="M5gRqzEymaKd2vjoiTx1-4" value="" style="shape=link;html=1;entryX=1;entryY=0.25;entryDx=0;entryDy=0;exitX=0;exitY=0.25;exitDx=0;exitDy=0;" parent="1" source="M5gRqzEymaKd2vjoiTx1-2" target="M5gRqzEymaKd2vjoiTx1-2" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="320" y="200" as="sourcePoint" />
+            <mxPoint x="370" y="150" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="M5gRqzEymaKd2vjoiTx1-7" value="&lt;br&gt;&lt;div style=&quot;text-align: left&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left&quot;&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="62.5" y="260" width="515" height="115" as="geometry" />
+        </mxCell>
+        <mxCell id="M5gRqzEymaKd2vjoiTx1-9" value="" style="shape=link;html=1;entryX=1;entryY=0.25;entryDx=0;entryDy=0;exitX=0;exitY=0.25;exitDx=0;exitDy=0;" parent="1" source="M5gRqzEymaKd2vjoiTx1-7" target="M5gRqzEymaKd2vjoiTx1-7" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="450" y="260" as="sourcePoint" />
+            <mxPoint x="650" y="260" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="M5gRqzEymaKd2vjoiTx1-14" value="Données sur l&#39;action:&amp;nbsp;&lt;br&gt;&lt;br&gt;&lt;br&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="160" y="430" width="160" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="5lRn7trauKPPp4TD-ejb-1" value="Données sur l&#39;action:&amp;nbsp;&lt;br&gt;&lt;br&gt;&lt;br&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="340" y="430" width="160" height="130" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="9faUbriprQIrWRnHLdAl" name="Page-2">
+    <mxGraphModel dx="782" dy="478" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="DKoaxWNWQivHLZWlEQpi-0" />
+        <mxCell id="DKoaxWNWQivHLZWlEQpi-1" parent="DKoaxWNWQivHLZWlEQpi-0" />
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
