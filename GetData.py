@@ -116,7 +116,14 @@ def GetFinancials(ticker):
     df_cs = pd.DataFrame(final[1:])
     df_cs.columns = headers
 
-    return df_income, df_balance, df_cs
+    # Data Cleaning
+    income_statement = df_income.apply(lambda x: x.str.replace(',', ''))
+    income_statement.rename(columns={list(income_statement)[1]: 'Value'}, inplace=True)
+    balance_sheet = df_balance.apply(lambda x: x.str.replace(',', ''))
+    balance_sheet.rename(columns={list(balance_sheet)[1]: 'Value'}, inplace=True)
+    cash_flow = df_cs.apply(lambda x: x.str.replace(',', ''))
+    cash_flow.rename(columns={list(cash_flow)[1]: 'Value'}, inplace=True)
+    return income_statement, balance_sheet, cash_flow
 
 
 def statistics(ticker):
