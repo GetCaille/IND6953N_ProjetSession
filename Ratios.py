@@ -6,6 +6,7 @@ import pandas as pd
 
 
 def calculate_ratio(data_Financials, key_stats):
+
     """
     :return:Ratios
     """
@@ -32,7 +33,7 @@ def calculate_ratio(data_Financials, key_stats):
     net_profit_margin = int(income_statement.loc[income_statement['Breakdown'] == 'Net Income', 'Value']) \
                     / int(income_statement.loc[income_statement['Breakdown'] == 'Total Revenue', 'Value'])
 
-    # float(key_stats.loc[key_stats['Name'] == 'Profit Margin', 'Value'])
+    # float(key_stats.loc[ key_stats['Name'] == 'Profit Margin', 'Value'])
     return_on_asset = (float(key_stats.loc[key_stats['Name'] == 'Return on Assets (ttm)', 'Value'])/100)
     return_on_equity = (float(key_stats.loc[key_stats['Name'] == 'Return on Equity (ttm)', 'Value'])/100)
     beta = float(key_stats.loc[9, 'Value'])
