@@ -11,7 +11,6 @@ import numpy as np
 
 
 def compare_ratio(ticker1, ticker2, ticker3):
-
     financials_t1 = GetFinancials(ticker1)
     financials_t2 = GetFinancials(ticker2)
     financials_t3 = GetFinancials(ticker3)
