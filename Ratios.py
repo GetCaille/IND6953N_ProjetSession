@@ -7,9 +7,6 @@ import pandas as pd
 
 def calculate_ratio(data_Financials, key_stats):
 
-    """
-    :return:Ratios
-    """
     income_statement = data_Financials[0]  # Income statement of the company
     balance_sheet = data_Financials[1]  # Balance Sheet of the Company
     current_ratio = int(balance_sheet.loc[balance_sheet['Breakdown'] == 'Total Current Assets', 'Value']) \
@@ -28,7 +25,6 @@ def calculate_ratio(data_Financials, key_stats):
     beta = float(key_stats.loc[9, 'Value'])
 
     # Creating a DataFrame with all values
-
     ratios_df = pd.DataFrame(
         [current_ratio, debt_ratio, debt_to_equity_ratio, operating_margin_ratio, net_profit_margin,
          return_on_asset, return_on_equity, forward_pe_ratio, price_to_sales, price_to_book, beta],
