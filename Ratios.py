@@ -10,30 +10,19 @@ def calculate_ratio(data_Financials, key_stats):
     """
     :return:Ratios
     """
-
     income_statement = data_Financials[0]  # Income statement of the company
     balance_sheet = data_Financials[1]  # Balance Sheet of the Company
-    # cash_flow = data_Financials[2]  # Cash Flow of the Company
-
-    # Liquidity Ratio & Leverage Ratio
-
     current_ratio = int(balance_sheet.loc[balance_sheet['Breakdown'] == 'Total Current Assets', 'Value']) \
                     / int(balance_sheet.loc[balance_sheet['Breakdown'] == 'Total Current Liabilities', 'Value'])
-
     debt_ratio = int(balance_sheet.loc[balance_sheet['Breakdown'] == 'Total Liabilities', 'Value'])\
                  / int(balance_sheet.loc[balance_sheet['Breakdown'] == 'Total Assets', 'Value'])
-
     debt_to_equity_ratio = float(key_stats.loc[key_stats['Name'] == 'Total Debt/Equity (mrq)', 'Value'])
-
     forward_pe_ratio = float(key_stats.loc[key_stats['Name'] == 'Forward P/E 1', 'Value'])
     price_to_sales = float(key_stats.loc[key_stats['Name'] == 'Price/Sales (ttm)', 'Value'])
     price_to_book = float(key_stats.loc[key_stats['Name'] == 'Price/Book (mrq)', 'Value'])
     operating_margin_ratio = (float(key_stats.loc[key_stats['Name'] == 'Operating Margin (ttm)', 'Value'])/100)
-
     net_profit_margin = int(income_statement.loc[income_statement['Breakdown'] == 'Net Income', 'Value']) \
                     / int(income_statement.loc[income_statement['Breakdown'] == 'Total Revenue', 'Value'])
-
-    # float(key_stats.loc[ key_stats['Name'] == 'Profit Margin', 'Value'])
     return_on_asset = (float(key_stats.loc[key_stats['Name'] == 'Return on Assets (ttm)', 'Value'])/100)
     return_on_equity = (float(key_stats.loc[key_stats['Name'] == 'Return on Equity (ttm)', 'Value'])/100)
     beta = float(key_stats.loc[9, 'Value'])
